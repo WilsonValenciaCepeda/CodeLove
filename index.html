@@ -464,7 +464,7 @@ function respuestaMucho() {
   const resultadoDiv = document.getElementById('resultado');
   clicksMucho++;
   const contadorDiv = document.getElementById('contadorJuego');
-  contadorDiv.innerHTML = `🎯 Click ${clicksMucho}/7 🎯`;
+  contadorDiv.innerHTML = `${clicksMucho}`;
   
   if (clicksMucho < 7) {
     moverBotonAleatorio(btn);
