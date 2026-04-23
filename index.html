@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
 <title>Para Ti ❤️</title>
 
 <style>
@@ -18,16 +19,19 @@ body {
   color: white;
   text-align: center;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
-/* Pantallas */
+/* Pantallas - RESPONSIVE */
 .pantalla {
   display: none;
-  padding: 50px;
+  padding: 30px 20px;
   position: relative;
   z-index: 2;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
   backdrop-filter: blur(3px);
+  width: 100%;
 }
 
 .activa {
@@ -43,10 +47,14 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
+/* TEXTO MÁS GRANDE EN MÓVIL */
 h1 {
-  font-size: 2.8em;
+  font-size: clamp(1.8rem, 8vw, 2.8rem);
   text-shadow: 0 0 15px rgba(0,0,0,0.3);
   animation: tituloBrillo 2s ease-in-out infinite;
+  text-align: center;
+  word-break: break-word;
+  margin-bottom: 15px;
 }
 
 @keyframes tituloBrillo {
@@ -55,27 +63,40 @@ h1 {
 }
 
 p {
-  font-size: 1.3em;
-  margin: 15px 0;
+  font-size: clamp(1rem, 4.5vw, 1.3rem);
+  margin: 12px 0;
+  line-height: 1.4;
+  padding: 0 5px;
 }
 
-/* Botones */
+h2 {
+  font-size: clamp(1.3rem, 6vw, 2rem);
+  margin: 10px 0;
+}
+
+/* Botones - MÁS GRANDES Y TÁCTILES */
 button {
-  padding: 12px 25px;
-  font-size: 18px;
+  padding: 14px 28px;
+  font-size: clamp(16px, 4.5vw, 18px);
   border: none;
-  border-radius: 50px;
+  border-radius: 60px;
   margin: 10px;
   cursor: pointer;
   background: linear-gradient(135deg, #ff4d6d, #ff1e4d);
   color: white;
-  transition: 0.3s;
+  transition: 0.2s;
   font-weight: bold;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  min-width: 160px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+  transform: scale(0.97);
 }
 
 button:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   box-shadow: 0 8px 25px rgba(255,30,77,0.5);
 }
 
@@ -126,7 +147,7 @@ button:hover {
 
 /* Corazón latido final */
 .latido {
-  font-size: 80px;
+  font-size: clamp(60px, 20vw, 80px);
   animation: latir 0.8s infinite;
 }
 
@@ -164,7 +185,7 @@ button:hover {
   50% { opacity: 1; transform: scale(1.2); }
 }
 
-.corazon-fondo {
+.corazon-fundo {
   position: absolute;
   font-size: 12px;
   animation: flotarFondo 4s ease-in-out infinite;
@@ -180,8 +201,8 @@ button:hover {
 
 .heart-canvas {
   position: relative;
-  width: 760px;
-  height: 760px;
+  width: min(760px, 90vw, 90vh);
+  height: min(760px, 90vw, 90vh);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,36 +211,36 @@ button:hover {
 
 .btn-algo-mas {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;
+  right: 20px;
   z-index: 10001;
   background: linear-gradient(135deg, #ff4d6d, #ff99cc);
   color: white;
   border: none;
-  border-radius: 30px;
-  padding: 8px 20px;
-  font-size: 14px;
+  border-radius: 40px;
+  padding: 10px 22px;
+  font-size: clamp(12px, 3.5vw, 14px);
   cursor: pointer;
   transition: 0.3s;
   box-shadow: 0 0 15px rgba(255,51,102,0.5);
   font-weight: bold;
 }
 
-.btn-algo-mas:hover {
-  transform: scale(1.1);
+.btn-algo-mas:active {
+  transform: scale(0.95);
 }
 
 .btn-cerrar {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
   z-index: 10001;
   background-color: rgba(0,0,0,0.7);
   color: white;
   border: none;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   font-size: 24px;
   cursor: pointer;
   display: flex;
@@ -227,25 +248,27 @@ button:hover {
   justify-content: center;
 }
 
-.btn-cerrar:hover {
+.btn-cerrar:active {
+  transform: scale(0.95);
   background-color: #ff1e4d;
-  transform: scale(1.1);
 }
 
 .modal-muuuu {
   position: fixed;
   bottom: 100px;
-  right: 30px;
+  right: 20px;
   background: linear-gradient(135deg, #ff4d6d, #ff99cc);
   color: white;
   padding: 15px 25px;
   border-radius: 30px;
-  font-size: 24px;
+  font-size: clamp(18px, 5vw, 24px);
   font-weight: bold;
   z-index: 10002;
   animation: aparecer 0.3s ease-out;
   box-shadow: 0 0 30px rgba(255,51,102,0.8);
   border: 2px solid gold;
+  max-width: 85vw;
+  text-align: center;
 }
 
 @keyframes aparecer {
@@ -254,12 +277,85 @@ button:hover {
 }
 
 .contador-clicks {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 4vw, 1.2rem);
   margin-top: 20px;
-  padding: 10px;
+  padding: 10px 20px;
   background: rgba(0,0,0,0.3);
   border-radius: 50px;
   display: inline-block;
+}
+
+/* RESPONSIVE PARA MÓVIL - SOLO AJUSTES DE TAMAÑO Y ESPACIADO */
+@media (max-width: 768px) {
+  .pantalla {
+    padding: 20px 15px;
+  }
+  
+  button {
+    padding: 14px 20px;
+    min-width: 140px;
+  }
+  
+  #botonesJuego {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+  }
+  
+  #botonesJuego button {
+    min-width: 130px;
+  }
+  
+  .heart-canvas {
+    width: 92vw;
+    height: 92vw;
+  }
+  
+  .btn-cerrar {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .btn-algo-mas {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 18px;
+  }
+}
+
+/* MÓVILES MUY PEQUEÑOS */
+@media (max-width: 480px) {
+  .pantalla {
+    padding: 15px 12px;
+  }
+  
+  button {
+    padding: 12px 16px;
+    min-width: 120px;
+    font-size: 14px;
+  }
+  
+  p {
+    margin: 8px 0;
+  }
+}
+
+/* SOPORTE PARA NOTCH Y BORDES REDONDEADOS */
+@supports (padding: max(0px)) {
+  .btn-cerrar {
+    top: max(15px, env(safe-area-inset-top));
+    right: max(15px, env(safe-area-inset-right));
+  }
+  
+  .btn-algo-mas {
+    bottom: max(20px, env(safe-area-inset-bottom));
+    right: max(20px, env(safe-area-inset-right));
+  }
 }
 </style>
 </head>
@@ -364,9 +460,22 @@ function reiniciarJuego() {
     btnMucho.style.left = '0';
     btnMucho.style.top = '0';
     btnMucho.textContent = 'Mucho 🥵🥰';
+    btnMucho.disabled = false;
+    btnMucho.style.opacity = '1';
+    btnMucho.style.backgroundColor = '';
   }
-  document.getElementById('contadorJuego');
+  document.getElementById('btnNada').disabled = false;
+  document.getElementById('btnPoco').disabled = false;
+  document.getElementById('btnNada').style.opacity = '1';
+  document.getElementById('btnPoco').style.opacity = '1';
+  document.getElementById('contadorJuego').innerHTML = '';
   document.getElementById('resultado').innerHTML = '';
+  
+  // Reasignar el evento
+  const btnMuchoNuevo = document.getElementById('btnMucho');
+  if (btnMuchoNuevo) {
+    btnMuchoNuevo.onclick = respuestaMucho;
+  }
 }
 
 /* Función para mover el botón a una posición aleatoria */
@@ -378,8 +487,8 @@ function moverBotonAleatorio(btn) {
   const y = Math.random() * ventanaAlto;
   
   btn.style.position = 'fixed';
-  btn.style.left = x + 'px';
-  btn.style.top = y + 'px';
+  btn.style.left = Math.max(10, Math.min(x, window.innerWidth - 150)) + 'px';
+  btn.style.top = Math.max(10, Math.min(y, window.innerHeight - 80)) + 'px';
   btn.style.zIndex = '1000';
 }
 
@@ -395,14 +504,14 @@ const mensajesIntento = [
   ""
 ];
 
-/* Respuesta del botón MUCHO (minijuego de 3 clicks) */
+/* Respuesta del botón MUCHO (minijuego de 7 clicks) */
 function respuestaMucho() {
   const btn = document.getElementById('btnMucho');
   const resultadoDiv = document.getElementById('resultado');
   
   clicksMucho++;
   const contadorDiv = document.getElementById('contadorJuego');
-  
+  contadorDiv.innerHTML = `🎯 Click ${clicksMucho}/7 🎯`;
   
   if (clicksMucho < 7) {
     // Mover el botón a posición aleatoria
@@ -420,10 +529,10 @@ function respuestaMucho() {
     crearCorazonCelebracion();
   } 
   else if (clicksMucho === 7) {
-    // ¡TERCER CLICK! Mostrar el mensaje final
+    // ¡SÉPTIMO CLICK! Mostrar el mensaje final
     resultadoDiv.innerHTML = "🎉🎊✨ ¡OBVIOOO MICROBIOOO! ✨🎊🎉<br>💘 Tu eres lo mas importante que tengo y nunca olvides lo mucho que te amo desgraciada :V 🤡💘";
     
-    // Cambiar el botón a verde y deshabilitarlo
+    // Cambiar el botón a verde
     btn.style.backgroundColor = '#28a745';
     btn.textContent = '✓ Completado ✓';
     btn.style.position = 'relative';
@@ -443,18 +552,10 @@ function respuestaMucho() {
       
       document.getElementById("mensajeFinal").innerHTML = "Eres lo mejor que me ha pasado ❤️, por ahora 😏 xd jajaja... <br>✨ Ahora si, último detallito 🤑😎💕 ✨";
       
-      // Mostrar mensaje extra
-      const msgExtra = document.createElement('p');
-      msgExtra.innerHTML = '⭐ ¡Felicidades, lo lograste! ⭐';
-      msgExtra.style.marginTop = '20px';
-      msgExtra.style.fontSize = '1.2em';
-      msgExtra.style.animation = 'fadeIn 0.5s';
-      resultadoDiv.appendChild(msgExtra);
-      
       // Cambiar a la pantalla final después de 2.5 segundos
       setTimeout(() => {
         cambiar('final');
-      }, 10000);
+      }, 2000);
     }, 1500);
   }
 }
@@ -550,7 +651,7 @@ document.getElementById('btnAlgoMas').addEventListener('click', function() {
 function generarElementosFondo() {
   const container = document.getElementById('heartContainer');
   
-  const fondosAntiguos = container.querySelectorAll('.estrella-fondo, .corazon-fondo');
+  const fondosAntiguos = container.querySelectorAll('.estrella-fondo, .corazon-fundo');
   fondosAntiguos.forEach(el => el.remove());
   
   for (let i = 0; i < 100; i++) {
@@ -566,7 +667,7 @@ function generarElementosFondo() {
   
   for (let i = 0; i < 60; i++) {
     const corazonFondo = document.createElement('div');
-    corazonFondo.className = 'corazon-fondo';
+    corazonFondo.className = 'corazon-fundo';
     const corazones = ['❤️', '💖', '💕', '💗', '💓', '💘', '💝'];
     corazonFondo.innerHTML = corazones[Math.floor(Math.random() * corazones.length)];
     corazonFondo.style.left = Math.random() * 100 + '%';
@@ -582,9 +683,10 @@ function generarElementosFondo() {
 function inicializarCorazon() {
   (function() {
     const container = document.getElementById('heartCanvas');
-    const centerX = 380;
-    const centerY = 375;
-    const scaleVal = 13.6;
+    const containerRect = container.getBoundingClientRect();
+    const centerX = containerRect.width / 2;
+    const centerY = containerRect.height / 2;
+    const scaleVal = Math.min(containerRect.width, containerRect.height) / 28;
     
     function obtenerPalabra() {
       const r = Math.random();
@@ -673,7 +775,7 @@ function inicializarCorazon() {
       texto: "❤️",
       left: centerX - 70,
       top: centerY - 48,
-      fontSize: "2.2rem",
+      fontSize: "clamp(24px, 6vw, 2.2rem)",
       claseExtra: "corazon-emoji",
       retardo: 0.01,
       zIndex: 70
@@ -682,7 +784,7 @@ function inicializarCorazon() {
       texto: "❤️",
       left: centerX + 70,
       top: centerY - 48,
-      fontSize: "2.2rem",
+      fontSize: "clamp(24px, 6vw, 2.2rem)",
       claseExtra: "corazon-emoji",
       retardo: 0.01,
       zIndex: 70
@@ -692,7 +794,7 @@ function inicializarCorazon() {
       texto: "Betza",
       left: centerX - 75,
       top: centerY - 20,
-      fontSize: "4rem",
+      fontSize: "clamp(32px, 8vw, 4rem)",
       claseExtra: "central-betza",
       retardo: 0,
       esCentral: true,
@@ -703,7 +805,7 @@ function inicializarCorazon() {
       texto: "AMOR",
       left: centerX,
       top: centerY - 82,
-      fontSize: "1.5rem",
+      fontSize: "clamp(16px, 4vw, 1.5rem)",
       claseExtra: "destacada",
       retardo: 0.02
     });
@@ -712,7 +814,7 @@ function inicializarCorazon() {
       texto: "Betzabe",
       left: centerX - 88,
       top: centerY + 40,
-      fontSize: "1rem",
+      fontSize: "clamp(10px, 3vw, 1rem)",
       claseExtra: "destacada",
       retardo: 0.01
     });
@@ -720,7 +822,7 @@ function inicializarCorazon() {
       texto: "Betzabe",
       left: centerX + 88,
       top: centerY + 40,
-      fontSize: "1rem",
+      fontSize: "clamp(10px, 3vw, 1rem)",
       claseExtra: "destacada",
       retardo: 0.01
     });
@@ -729,7 +831,7 @@ function inicializarCorazon() {
       texto: "TE DESEO",
       left: centerX - 70,
       top: centerY + 112,
-      fontSize: "0.98rem",
+      fontSize: "clamp(9px, 2.8vw, 0.98rem)",
       claseExtra: "destacada",
       retardo: 0.03
     });
@@ -737,7 +839,7 @@ function inicializarCorazon() {
       texto: "FELIZ",
       left: centerX + 72,
       top: centerY + 112,
-      fontSize: "0.98rem",
+      fontSize: "clamp(9px, 2.8vw, 0.98rem)",
       claseExtra: "destacada",
       retardo: 0.03
     });
@@ -746,7 +848,7 @@ function inicializarCorazon() {
       texto: "VIDA",
       left: centerX - 118,
       top: centerY + 8,
-      fontSize: "1rem",
+      fontSize: "clamp(10px, 3vw, 1rem)",
       claseExtra: "destacada",
       retardo: 0.02
     });
@@ -754,7 +856,7 @@ function inicializarCorazon() {
       texto: "VIDA",
       left: centerX + 118,
       top: centerY + 8,
-      fontSize: "1rem",
+      fontSize: "clamp(10px, 3vw, 1rem)",
       claseExtra: "destacada",
       retardo: 0.02
     });
@@ -763,7 +865,7 @@ function inicializarCorazon() {
       texto: "eterno",
       left: centerX,
       top: centerY + 150,
-      fontSize: "0.95rem",
+      fontSize: "clamp(9px, 2.8vw, 0.95rem)",
       claseExtra: "soft-word",
       retardo: 0.03
     });
@@ -772,7 +874,7 @@ function inicializarCorazon() {
       texto: "AMO",
       left: centerX - 58,
       top: centerY + 25,
-      fontSize: "1rem",
+      fontSize: "clamp(10px, 3vw, 1rem)",
       claseExtra: "destacada",
       retardo: 0.01
     });
@@ -780,7 +882,7 @@ function inicializarCorazon() {
       texto: "AMO",
       left: centerX + 58,
       top: centerY + 25,
-      fontSize: "1rem",
+      fontSize: "clamp(10px, 3vw, 1rem)",
       claseExtra: "destacada",
       retardo: 0.01
     });
@@ -801,7 +903,7 @@ function inicializarCorazon() {
         texto: palabra,
         left: posX,
         top: posY,
-        fontSize: "0.85rem",
+        fontSize: "clamp(8px, 2.5vw, 0.85rem)",
         claseExtra: "soft-word",
         retardo: (f % 2 === 0) ? 0.01 : 0
       });
@@ -821,7 +923,7 @@ function inicializarCorazon() {
         texto: palabraChoice,
         left: posX,
         top: posY,
-        fontSize: "0.82rem",
+        fontSize: "clamp(8px, 2.5vw, 0.82rem)",
         claseExtra: "soft-word",
         retardo: 0.02
       });
@@ -884,14 +986,13 @@ styleHeart.textContent = `
   }
   
   .central-betza {
-    font-size: 4rem !important;
     font-weight: 900;
     background: linear-gradient(135deg, #ff4d6d, #ffb3cc);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent !important;
     text-shadow: 0 0 25px #ff3366, 0 0 45px #ff99bb;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     z-index: 100;
     animation: latidoCentral 0.6s ease-in-out infinite !important;
   }
@@ -903,7 +1004,6 @@ styleHeart.textContent = `
   }
   
   .corazon-emoji {
-    font-size: 2.2rem !important;
     text-shadow: 0 0 12px #ff3366, 0 0 20px #ff6699;
     animation: latidoRapido 0.6s ease-in-out infinite;
   }
