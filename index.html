@@ -25,7 +25,7 @@ body {
 /* Pantallas - RESPONSIVE */
 .pantalla {
   display: none;
-  padding: 30px 20px;
+  padding: 20px 15px;
   position: relative;
   z-index: 2;
   min-height: 100vh;
@@ -47,14 +47,15 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* TEXTO MÁS GRANDE EN MÓVIL */
+/* TEXTO GRANDE PARA CELULAR */
 h1 {
-  font-size: clamp(1.8rem, 8vw, 2.8rem);
+  font-size: 2.5rem;
   text-shadow: 0 0 15px rgba(0,0,0,0.3);
   animation: tituloBrillo 2s ease-in-out infinite;
   text-align: center;
   word-break: break-word;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  line-height: 1.3;
 }
 
 @keyframes tituloBrillo {
@@ -63,41 +64,36 @@ h1 {
 }
 
 p {
-  font-size: clamp(1rem, 4.5vw, 1.3rem);
-  margin: 12px 0;
+  font-size: 1.4rem;
+  margin: 15px 0;
   line-height: 1.4;
   padding: 0 5px;
 }
 
 h2 {
-  font-size: clamp(1.3rem, 6vw, 2rem);
-  margin: 10px 0;
+  font-size: 1.8rem;
+  margin: 15px 0;
 }
 
-/* Botones - MÁS GRANDES Y TÁCTILES */
+/* Botones GRANDES táctiles */
 button {
-  padding: 14px 28px;
-  font-size: clamp(16px, 4.5vw, 18px);
+  padding: 16px 32px;
+  font-size: 1.3rem;
   border: none;
   border-radius: 60px;
-  margin: 10px;
+  margin: 12px;
   cursor: pointer;
   background: linear-gradient(135deg, #ff4d6d, #ff1e4d);
   color: white;
   transition: 0.2s;
   font-weight: bold;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  min-width: 160px;
+  min-width: 200px;
   -webkit-tap-highlight-color: transparent;
 }
 
 button:active {
   transform: scale(0.97);
-}
-
-button:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 25px rgba(255,30,77,0.5);
 }
 
 /* Botón del juego "Mucho" - posición aleatoria */
@@ -111,7 +107,7 @@ button:hover {
 .corazon-flotante {
   position: absolute;
   bottom: -50px;
-  font-size: 20px;
+  font-size: 30px;
   animation: flotarSubir linear infinite;
   opacity: 0.8;
   pointer-events: none;
@@ -138,6 +134,7 @@ button:hover {
   pointer-events: none;
   animation: brillar 1.5s ease-in-out infinite;
   z-index: 1;
+  font-size: 25px;
 }
 
 @keyframes brillar {
@@ -147,7 +144,7 @@ button:hover {
 
 /* Corazón latido final */
 .latido {
-  font-size: clamp(60px, 20vw, 80px);
+  font-size: 100px;
   animation: latir 0.8s infinite;
 }
 
@@ -175,7 +172,7 @@ button:hover {
 .estrella-fondo {
   position: absolute;
   color: gold;
-  font-size: 8px;
+  font-size: 16px;
   animation: twinkle 2s ease-in-out infinite;
   pointer-events: none;
 }
@@ -187,7 +184,7 @@ button:hover {
 
 .corazon-fundo {
   position: absolute;
-  font-size: 12px;
+  font-size: 22px;
   animation: flotarFondo 4s ease-in-out infinite;
   pointer-events: none;
   opacity: 0.6;
@@ -201,8 +198,8 @@ button:hover {
 
 .heart-canvas {
   position: relative;
-  width: min(760px, 90vw, 90vh);
-  height: min(760px, 90vw, 90vh);
+  width: min(760px, 95vw, 95vh);
+  height: min(760px, 95vw, 95vh);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -218,12 +215,13 @@ button:hover {
   color: white;
   border: none;
   border-radius: 40px;
-  padding: 10px 22px;
-  font-size: clamp(12px, 3.5vw, 14px);
+  padding: 14px 28px;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: 0.3s;
   box-shadow: 0 0 15px rgba(255,51,102,0.5);
   font-weight: bold;
+  min-width: auto;
 }
 
 .btn-algo-mas:active {
@@ -239,13 +237,15 @@ button:hover {
   color: white;
   border: none;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  font-size: 24px;
+  width: 55px;
+  height: 55px;
+  font-size: 28px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: auto;
+  padding: 0;
 }
 
 .btn-cerrar:active {
@@ -259,9 +259,9 @@ button:hover {
   right: 20px;
   background: linear-gradient(135deg, #ff4d6d, #ff99cc);
   color: white;
-  padding: 15px 25px;
+  padding: 20px 30px;
   border-radius: 30px;
-  font-size: clamp(18px, 5vw, 24px);
+  font-size: 1.5rem;
   font-weight: bold;
   z-index: 10002;
   animation: aparecer 0.3s ease-out;
@@ -277,75 +277,111 @@ button:hover {
 }
 
 .contador-clicks {
-  font-size: clamp(1rem, 4vw, 1.2rem);
+  font-size: 1.3rem;
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   background: rgba(0,0,0,0.3);
   border-radius: 50px;
   display: inline-block;
 }
 
-/* RESPONSIVE PARA MÓVIL - SOLO AJUSTES DE TAMAÑO Y ESPACIADO */
+#resultado {
+  font-size: 1.3rem;
+  margin-top: 20px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* RESPONSIVE PARA MÓVIL - TODO MÁS GRANDE */
 @media (max-width: 768px) {
   .pantalla {
     padding: 20px 15px;
+    justify-content: center;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
   }
   
   button {
-    padding: 14px 20px;
-    min-width: 140px;
+    padding: 15px 28px;
+    font-size: 1.2rem;
+    min-width: 180px;
   }
   
   #botonesJuego {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
+    gap: 15px;
     width: 100%;
   }
   
   #botonesJuego button {
-    min-width: 130px;
+    min-width: 160px;
+    font-size: 1.2rem;
   }
   
-  .heart-canvas {
-    width: 92vw;
-    height: 92vw;
+  .contador-clicks {
+    font-size: 1.2rem;
+    padding: 10px 20px;
   }
   
-  .btn-cerrar {
-    width: 44px;
-    height: 44px;
-    font-size: 22px;
-    top: 10px;
-    right: 10px;
+  #resultado {
+    font-size: 1.2rem;
   }
   
-  .btn-algo-mas {
-    bottom: 15px;
-    right: 15px;
-    padding: 8px 18px;
+  .latido {
+    font-size: 80px;
   }
 }
 
-/* MÓVILES MUY PEQUEÑOS */
+/* MÓVILES MUY PEQUEÑOS - AÚN MÁS GRANDE PROPORCIONALMENTE */
 @media (max-width: 480px) {
   .pantalla {
     padding: 15px 12px;
   }
   
-  button {
-    padding: 12px 16px;
-    min-width: 120px;
-    font-size: 14px;
+  h1 {
+    font-size: 1.9rem;
   }
   
   p {
-    margin: 8px 0;
+    font-size: 1.1rem;
+  }
+  
+  button {
+    padding: 14px 24px;
+    font-size: 1.1rem;
+    min-width: 160px;
+  }
+  
+  .btn-cerrar {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+  
+  .btn-algo-mas {
+    padding: 12px 22px;
+    font-size: 1rem;
+  }
+  
+  .modal-muuuu {
+    font-size: 1.2rem;
+    padding: 15px 20px;
   }
 }
 
-/* SOPORTE PARA NOTCH Y BORDES REDONDEADOS */
+/* SOPORTE PARA NOTCH */
 @supports (padding: max(0px)) {
   .btn-cerrar {
     top: max(15px, env(safe-area-inset-top));
@@ -365,7 +401,7 @@ button:hover {
 <!-- INICIO -->
 <div class="pantalla activa" id="inicio">
   <h1>💖 Hola k onda Loka :V 💖</h1>
-  <p>Tengo algo especial para <span style="font-size: 1.5em;">🐮</span> <strong>Muuuuu🐮</strong> <span style="font-size: 1.5em;"></span>aaa 🥵🥵🥵</p>
+  <p>Tengo algo especial para <span style="font-size: 1.8em;">🐮</span> <strong>Muuuuu🐮</strong>aaa 🥵🥵🥵</p>
   <button onclick="cambiar('mensaje1')">✨ Empezar ✨</button>
 </div>
 
@@ -392,7 +428,7 @@ button:hover {
   <h1>💖 Haber 😏</h1>
   <p>Y ahora... quiero que juegues un poco conmigo 😏🔥🔥🔥</p>
   <p>Pero no conmigo ni mi corazonito ehhh >:'v 💀😱</p>
-  <h2>No te pases de <span style="font-size: 1.3em;">🐮</span> Muuuuuu🐮jer <span style="font-size: 1.3em;"></span> 🤠</h2>
+  <h2>No te pases de <span style="font-size: 1.5em;">🐮</span> Muuuuuu🐮jer 🤠</h2>
   <button onclick="cambiar('juego')">✨ Ir al juego ✨</button>
 </div>
 
@@ -429,20 +465,17 @@ button:hover {
 
 // Variables para el juego
 let clicksMucho = 0;
-let btnMuchoOriginal = null;
 
 /* Cambiar pantallas */
 function cambiar(id) {
   document.querySelectorAll(".pantalla").forEach(p => p.classList.remove("activa"));
   document.getElementById(id).classList.add("activa");
   
-  // Si es la pantalla de juego, reiniciar el juego
   if (id === 'juego') {
     reiniciarJuego();
   }
 }
 
-/* Respuestas de Nada y Poco (fáciles, no cambian) */
 function respuestaNada() {
   document.getElementById("resultado").innerHTML = "Mmm... eso no puede ser 😤 intenta otra vez, dele mija adivine bien >:v";
 }
@@ -451,7 +484,6 @@ function respuestaPoco() {
   document.getElementById("resultado").innerHTML = "Vas bien... pero todavía no llegas 😏🔥 No te hagas a las interesantes :V";
 }
 
-/* Reiniciar el juego */
 function reiniciarJuego() {
   clicksMucho = 0;
   const btnMucho = document.getElementById('btnMucho');
@@ -463,6 +495,7 @@ function reiniciarJuego() {
     btnMucho.disabled = false;
     btnMucho.style.opacity = '1';
     btnMucho.style.backgroundColor = '';
+    btnMucho.onclick = respuestaMucho;
   }
   document.getElementById('btnNada').disabled = false;
   document.getElementById('btnPoco').disabled = false;
@@ -470,29 +503,21 @@ function reiniciarJuego() {
   document.getElementById('btnPoco').style.opacity = '1';
   document.getElementById('contadorJuego').innerHTML = '';
   document.getElementById('resultado').innerHTML = '';
-  
-  // Reasignar el evento
-  const btnMuchoNuevo = document.getElementById('btnMucho');
-  if (btnMuchoNuevo) {
-    btnMuchoNuevo.onclick = respuestaMucho;
-  }
 }
 
-/* Función para mover el botón a una posición aleatoria */
 function moverBotonAleatorio(btn) {
-  const ventanaAncho = window.innerWidth - 200;
-  const ventanaAlto = window.innerHeight - 150;
+  const ventanaAncho = window.innerWidth - 180;
+  const ventanaAlto = window.innerHeight - 120;
   
   const x = Math.random() * ventanaAncho;
   const y = Math.random() * ventanaAlto;
   
   btn.style.position = 'fixed';
-  btn.style.left = Math.max(10, Math.min(x, window.innerWidth - 150)) + 'px';
+  btn.style.left = Math.max(10, Math.min(x, window.innerWidth - 160)) + 'px';
   btn.style.top = Math.max(10, Math.min(y, window.innerHeight - 80)) + 'px';
   btn.style.zIndex = '1000';
 }
 
-/* Mensajes aleatorios para cada intento */
 const mensajesIntento = [
   "😏 No es tan fácil eh... ¡atrápame!",
   "🔥 jajaja, otra vez, acá estoy",
@@ -500,11 +525,9 @@ const mensajesIntento = [
   "🐮 Muuuuuu... no me atrapas",
   "💪 Rapido Mujer :v que me canso",
   "✨ Neeeee lenta como vaca ",
-  "😈 Ya pe causa clickeame :'v",
-  ""
+  "😈 Ya pe causa clickeame :'v"
 ];
 
-/* Respuesta del botón MUCHO (minijuego de 7 clicks) */
 function respuestaMucho() {
   const btn = document.getElementById('btnMucho');
   const resultadoDiv = document.getElementById('resultado');
@@ -514,37 +537,25 @@ function respuestaMucho() {
   contadorDiv.innerHTML = `🎯 Click ${clicksMucho}/7 🎯`;
   
   if (clicksMucho < 7) {
-    // Mover el botón a posición aleatoria
     moverBotonAleatorio(btn);
-    
-    // Mostrar mensaje aleatorio
     const msgAleatorio = mensajesIntento[Math.floor(Math.random() * mensajesIntento.length)];
-    resultadoDiv.innerHTML = `${msgAleatorio} `;
+    resultadoDiv.innerHTML = `${msgAleatorio}`;
     
-    // Efecto visual en el contador
     contadorDiv.style.transform = 'scale(1.1)';
     setTimeout(() => { contadorDiv.style.transform = 'scale(1)'; }, 200);
-    
-    // Generar un corazón flotante de celebración
     crearCorazonCelebracion();
   } 
   else if (clicksMucho === 7) {
-    // ¡SÉPTIMO CLICK! Mostrar el mensaje final
     resultadoDiv.innerHTML = "🎉🎊✨ ¡OBVIOOO MICROBIOOO! ✨🎊🎉<br>💘 Tu eres lo mas importante que tengo y nunca olvides lo mucho que te amo desgraciada :V 🤡💘";
     
-    // Cambiar el botón a verde
     btn.style.backgroundColor = '#28a745';
     btn.textContent = '✓ Completado ✓';
     btn.style.position = 'relative';
     btn.style.left = '0';
     btn.style.top = '0';
-    
-    // Evitar más clicks
     btn.onclick = null;
     
-    // Mostrar el mensaje de "Eres lo mejor" y el botón final después de 2 segundos
     setTimeout(() => {
-      // Deshabilitar los otros botones
       document.getElementById('btnNada').disabled = true;
       document.getElementById('btnPoco').disabled = true;
       document.getElementById('btnNada').style.opacity = '0.5';
@@ -552,7 +563,6 @@ function respuestaMucho() {
       
       document.getElementById("mensajeFinal").innerHTML = "Eres lo mejor que me ha pasado ❤️, por ahora 😏 xd jajaja... <br>✨ Ahora si, último detallito 🤑😎💕 ✨";
       
-      // Cambiar a la pantalla final después de 2.5 segundos
       setTimeout(() => {
         cambiar('final');
       }, 2000);
@@ -560,14 +570,13 @@ function respuestaMucho() {
   }
 }
 
-/* Corazón de celebración al atrapar el botón */
 function crearCorazonCelebracion() {
   const corazon = document.createElement('div');
   corazon.className = 'corazon-flotante';
   corazon.innerHTML = ['💖', '💕', '💗', '💓', '✨', '🎉'][Math.floor(Math.random() * 6)];
   corazon.style.left = Math.random() * 100 + 'vw';
   corazon.style.bottom = '0px';
-  corazon.style.fontSize = (20 + Math.random() * 30) + 'px';
+  corazon.style.fontSize = (30 + Math.random() * 40) + 'px';
   corazon.style.animationDuration = (1 + Math.random() * 2) + 's';
   document.body.appendChild(corazon);
   
@@ -576,7 +585,6 @@ function crearCorazonCelebracion() {
   }, 2000);
 }
 
-/* Función para generar corazones flotantes constantes (más vida) */
 function generarCorazonesFlotantes() {
   setInterval(() => {
     if (document.querySelector('.pantalla.activa')) {
@@ -586,7 +594,7 @@ function generarCorazonesFlotantes() {
       corazon.innerHTML = corazones[Math.floor(Math.random() * corazones.length)];
       corazon.style.left = Math.random() * 100 + 'vw';
       corazon.style.bottom = '0px';
-      corazon.style.fontSize = (15 + Math.random() * 35) + 'px';
+      corazon.style.fontSize = (25 + Math.random() * 45) + 'px';
       corazon.style.animationDuration = (2 + Math.random() * 5) + 's';
       corazon.style.animationDelay = Math.random() * 3 + 's';
       document.body.appendChild(corazon);
@@ -598,7 +606,6 @@ function generarCorazonesFlotantes() {
   }, 300);
 }
 
-/* Generar estrellas brillantes en todas las pantallas */
 function generarEstrellas() {
   setInterval(() => {
     if (document.querySelector('.pantalla.activa')) {
@@ -608,7 +615,7 @@ function generarEstrellas() {
       estrella.innerHTML = estrellasList[Math.floor(Math.random() * estrellasList.length)];
       estrella.style.left = Math.random() * 100 + '%';
       estrella.style.top = Math.random() * 100 + '%';
-      estrella.style.fontSize = (10 + Math.random() * 25) + 'px';
+      estrella.style.fontSize = (20 + Math.random() * 35) + 'px';
       estrella.style.animationDuration = (0.8 + Math.random() * 1.5) + 's';
       document.body.appendChild(estrella);
       
@@ -619,7 +626,6 @@ function generarEstrellas() {
   }, 800);
 }
 
-/* Mostrar el corazón de palabras */
 document.getElementById('btnCorazonFinal').addEventListener('click', function() {
   const heartContainer = document.getElementById('heartContainer');
   heartContainer.style.display = 'flex';
@@ -627,12 +633,10 @@ document.getElementById('btnCorazonFinal').addEventListener('click', function() 
   generarElementosFondo();
 });
 
-/* Cerrar el corazón */
 document.getElementById('cerrarHeart').addEventListener('click', function() {
   document.getElementById('heartContainer').style.display = 'none';
 });
 
-/* Botón "algo mas" */
 document.getElementById('btnAlgoMas').addEventListener('click', function() {
   const modalExistente = document.querySelector('.modal-muuuu');
   if (modalExistente) modalExistente.remove();
@@ -647,7 +651,6 @@ document.getElementById('btnAlgoMas').addEventListener('click', function() {
   }, 3500);
 });
 
-/* Generar fondo animado para el corazón */
 function generarElementosFondo() {
   const container = document.getElementById('heartContainer');
   
@@ -660,7 +663,7 @@ function generarElementosFondo() {
     estrella.innerHTML = ['✨', '⭐', '🌟', '💫', '⚡'][Math.floor(Math.random() * 5)];
     estrella.style.left = Math.random() * 100 + '%';
     estrella.style.top = Math.random() * 100 + '%';
-    estrella.style.fontSize = (6 + Math.random() * 14) + 'px';
+    estrella.style.fontSize = (12 + Math.random() * 20) + 'px';
     estrella.style.animationDelay = Math.random() * 3 + 's';
     container.appendChild(estrella);
   }
@@ -672,14 +675,13 @@ function generarElementosFondo() {
     corazonFondo.innerHTML = corazones[Math.floor(Math.random() * corazones.length)];
     corazonFondo.style.left = Math.random() * 100 + '%';
     corazonFondo.style.bottom = '-' + (Math.random() * 50) + 'px';
-    corazonFondo.style.fontSize = (15 + Math.random() * 35) + 'px';
+    corazonFondo.style.fontSize = (20 + Math.random() * 40) + 'px';
     corazonFondo.style.animationDelay = Math.random() * 5 + 's';
     corazonFondo.style.animationDuration = (3 + Math.random() * 6) + 's';
     container.appendChild(corazonFondo);
   }
 }
 
-/* Inicializar el corazón de palabras */
 function inicializarCorazon() {
   (function() {
     const container = document.getElementById('heartCanvas');
@@ -722,7 +724,7 @@ function inicializarCorazon() {
       if (y < -7 && Math.abs(x) < 3) palabra = "Betza";
       if ((x > 10 && y > 1) || (x < -10 && y > 1)) palabra = (i % 2 === 0) ? "AMOR" : "Betza";
       
-      let fontSize = 0.9 + (Math.sin(t) * 0.2);
+      let fontSize = (0.9 + (Math.sin(t) * 0.2));
       fontSize = Math.min(1.15, Math.max(0.85, fontSize));
       
       listaPalabras.push({
@@ -775,7 +777,7 @@ function inicializarCorazon() {
       texto: "❤️",
       left: centerX - 70,
       top: centerY - 48,
-      fontSize: "clamp(24px, 6vw, 2.2rem)",
+      fontSize: "clamp(28px, 8vw, 2.2rem)",
       claseExtra: "corazon-emoji",
       retardo: 0.01,
       zIndex: 70
@@ -784,7 +786,7 @@ function inicializarCorazon() {
       texto: "❤️",
       left: centerX + 70,
       top: centerY - 48,
-      fontSize: "clamp(24px, 6vw, 2.2rem)",
+      fontSize: "clamp(28px, 8vw, 2.2rem)",
       claseExtra: "corazon-emoji",
       retardo: 0.01,
       zIndex: 70
@@ -794,7 +796,7 @@ function inicializarCorazon() {
       texto: "Betza",
       left: centerX - 75,
       top: centerY - 20,
-      fontSize: "clamp(32px, 8vw, 4rem)",
+      fontSize: "clamp(40px, 10vw, 4rem)",
       claseExtra: "central-betza",
       retardo: 0,
       esCentral: true,
@@ -805,7 +807,7 @@ function inicializarCorazon() {
       texto: "AMOR",
       left: centerX,
       top: centerY - 82,
-      fontSize: "clamp(16px, 4vw, 1.5rem)",
+      fontSize: "clamp(18px, 5vw, 1.5rem)",
       claseExtra: "destacada",
       retardo: 0.02
     });
@@ -814,7 +816,7 @@ function inicializarCorazon() {
       texto: "Betzabe",
       left: centerX - 88,
       top: centerY + 40,
-      fontSize: "clamp(10px, 3vw, 1rem)",
+      fontSize: "clamp(12px, 3.5vw, 1rem)",
       claseExtra: "destacada",
       retardo: 0.01
     });
@@ -822,7 +824,7 @@ function inicializarCorazon() {
       texto: "Betzabe",
       left: centerX + 88,
       top: centerY + 40,
-      fontSize: "clamp(10px, 3vw, 1rem)",
+      fontSize: "clamp(12px, 3.5vw, 1rem)",
       claseExtra: "destacada",
       retardo: 0.01
     });
@@ -831,7 +833,7 @@ function inicializarCorazon() {
       texto: "TE DESEO",
       left: centerX - 70,
       top: centerY + 112,
-      fontSize: "clamp(9px, 2.8vw, 0.98rem)",
+      fontSize: "clamp(11px, 3.2vw, 0.98rem)",
       claseExtra: "destacada",
       retardo: 0.03
     });
@@ -839,7 +841,7 @@ function inicializarCorazon() {
       texto: "FELIZ",
       left: centerX + 72,
       top: centerY + 112,
-      fontSize: "clamp(9px, 2.8vw, 0.98rem)",
+      fontSize: "clamp(11px, 3.2vw, 0.98rem)",
       claseExtra: "destacada",
       retardo: 0.03
     });
@@ -848,7 +850,7 @@ function inicializarCorazon() {
       texto: "VIDA",
       left: centerX - 118,
       top: centerY + 8,
-      fontSize: "clamp(10px, 3vw, 1rem)",
+      fontSize: "clamp(12px, 3.5vw, 1rem)",
       claseExtra: "destacada",
       retardo: 0.02
     });
@@ -856,7 +858,7 @@ function inicializarCorazon() {
       texto: "VIDA",
       left: centerX + 118,
       top: centerY + 8,
-      fontSize: "clamp(10px, 3vw, 1rem)",
+      fontSize: "clamp(12px, 3.5vw, 1rem)",
       claseExtra: "destacada",
       retardo: 0.02
     });
@@ -865,7 +867,7 @@ function inicializarCorazon() {
       texto: "eterno",
       left: centerX,
       top: centerY + 150,
-      fontSize: "clamp(9px, 2.8vw, 0.95rem)",
+      fontSize: "clamp(11px, 3.2vw, 0.95rem)",
       claseExtra: "soft-word",
       retardo: 0.03
     });
@@ -874,7 +876,7 @@ function inicializarCorazon() {
       texto: "AMO",
       left: centerX - 58,
       top: centerY + 25,
-      fontSize: "clamp(10px, 3vw, 1rem)",
+      fontSize: "clamp(12px, 3.5vw, 1rem)",
       claseExtra: "destacada",
       retardo: 0.01
     });
@@ -882,7 +884,7 @@ function inicializarCorazon() {
       texto: "AMO",
       left: centerX + 58,
       top: centerY + 25,
-      fontSize: "clamp(10px, 3vw, 1rem)",
+      fontSize: "clamp(12px, 3.5vw, 1rem)",
       claseExtra: "destacada",
       retardo: 0.01
     });
@@ -903,7 +905,7 @@ function inicializarCorazon() {
         texto: palabra,
         left: posX,
         top: posY,
-        fontSize: "clamp(8px, 2.5vw, 0.85rem)",
+        fontSize: "clamp(9px, 2.8vw, 0.85rem)",
         claseExtra: "soft-word",
         retardo: (f % 2 === 0) ? 0.01 : 0
       });
@@ -923,7 +925,7 @@ function inicializarCorazon() {
         texto: palabraChoice,
         left: posX,
         top: posY,
-        fontSize: "clamp(8px, 2.5vw, 0.82rem)",
+        fontSize: "clamp(9px, 2.8vw, 0.82rem)",
         claseExtra: "soft-word",
         retardo: 0.02
       });
@@ -963,7 +965,6 @@ function inicializarCorazon() {
   })();
 }
 
-/* Estilos adicionales para el corazón */
 const styleHeart = document.createElement('style');
 styleHeart.textContent = `
   .heart-word {
@@ -1020,15 +1021,12 @@ styleHeart.textContent = `
 `;
 document.head.appendChild(styleHeart);
 
-// Inicializar eventos y animaciones
 document.addEventListener('DOMContentLoaded', function() {
-  // Asignar el evento al botón Mucho después de que el DOM cargue
   const btnMucho = document.getElementById('btnMucho');
   if (btnMucho) {
     btnMucho.onclick = respuestaMucho;
   }
   
-  // Iniciar animaciones de fondo
   generarCorazonesFlotantes();
   generarEstrellas();
 });
