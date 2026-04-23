@@ -22,7 +22,7 @@ body {
   min-height: 100vh;
 }
 
-/* Pantallas - AHORA EMPIEZAN DESDE ARRIBA, NO CENTRADAS */
+/* Pantallas */
 .pantalla {
   display: none;
   padding: 25px 20px;
@@ -37,7 +37,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;  /* ← IMPORTANTE: empieza desde arriba */
+  justify-content: flex-start;
   animation: fadeIn 0.8s ease-out;
 }
 
@@ -46,7 +46,6 @@ body {
   to { opacity: 1; }
 }
 
-/* ===== LETRAS ENORMES PARA CELULAR ===== */
 h1 {
   font-size: 2.5rem !important;
   text-shadow: 0 0 15px rgba(0,0,0,0.3);
@@ -56,7 +55,6 @@ h1 {
   margin-bottom: 25px;
   line-height: 1.3;
   font-weight: bold;
-  word-break: break-word;
 }
 
 @keyframes tituloBrillo {
@@ -68,7 +66,6 @@ p {
   font-size: 1.5rem !important;
   margin: 15px 0;
   line-height: 1.4;
-  padding: 0 5px;
 }
 
 h2 {
@@ -76,7 +73,6 @@ h2 {
   margin: 15px 0;
 }
 
-/* Botones ENORMES y fáciles de tocar */
 button {
   padding: 16px 32px !important;
   font-size: 1.4rem !important;
@@ -90,27 +86,22 @@ button {
   font-weight: bold;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   min-width: 220px;
-  width: auto;
-  -webkit-tap-highlight-color: transparent;
 }
 
 button:active {
   transform: scale(0.96);
 }
 
-/* Botón del juego "Mucho" - posición aleatoria */
 .boton-juego {
   position: relative;
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
-/* Contenedor de botones del juego - vertical */
 #botonesJuego {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 15px;
   width: 100%;
   margin: 20px 0;
@@ -121,7 +112,6 @@ button:active {
   max-width: 300px;
 }
 
-/* Corazones flotando */
 .corazon-flotante {
   position: absolute;
   bottom: -50px;
@@ -138,7 +128,6 @@ button:active {
   100% { transform: translateY(-110vh) scale(1.3) rotate(20deg); opacity: 0; }
 }
 
-/* Estrellas brillantes */
 .estrella-brillo {
   position: absolute;
   pointer-events: none;
@@ -152,7 +141,6 @@ button:active {
   50% { opacity: 1; transform: scale(1.2); text-shadow: 0 0 10px gold; }
 }
 
-/* Corazón latido final */
 .latido {
   font-size: 100px !important;
   animation: latir 0.8s infinite;
@@ -165,7 +153,7 @@ button:active {
   100% { transform: scale(1); }
 }
 
-/* Contenedor del corazón de palabras */
+/* CONTENEDOR CORAZÓN - MÁS GRANDE Y SEPARADO */
 #heartContainer {
   position: fixed;
   top: 0;
@@ -180,66 +168,19 @@ button:active {
   overflow: hidden;
 }
 
-.estrella-fondo {
-  position: absolute;
-  color: gold;
-  font-size: 18px;
-  animation: twinkle 2s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
-}
-
-.corazon-fundo {
-  position: absolute;
-  font-size: 24px;
-  animation: flotarFondo 4s ease-in-out infinite;
-  pointer-events: none;
-  opacity: 0.6;
-}
-
-@keyframes flotarFondo {
-  0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
-  50% { opacity: 0.8; }
-  100% { transform: translateY(-100px) rotate(20deg); opacity: 0; }
-}
-
 .heart-canvas {
   position: relative;
-  width: min(760px, 95vw, 95vh);
-  height: min(760px, 95vw, 95vh);
+  width: 98vw;
+  height: 98vh;
+  max-width: 800px;
+  max-height: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10;
 }
 
-.btn-algo-mas {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10001;
-  background: linear-gradient(135deg, #ff4d6d, #ff99cc);
-  color: white;
-  border: none;
-  border-radius: 40px;
-  padding: 14px 28px !important;
-  font-size: 1.3rem !important;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 0 15px rgba(255,51,102,0.5);
-  font-weight: bold;
-  min-width: auto !important;
-  width: auto !important;
-}
-
-.btn-algo-mas:active {
-  transform: scale(0.95);
-}
-
+/* BOTONES FLOTANTES - REPOSICIONADOS */
 .btn-cerrar {
   position: fixed;
   top: 15px;
@@ -249,31 +190,50 @@ button:active {
   color: white;
   border: none;
   border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  font-size: 28px !important;
+  width: 50px;
+  height: 50px;
+  font-size: 26px !important;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: auto !important;
   padding: 0 !important;
+  margin: 0 !important;
 }
 
-.btn-cerrar:active {
+.btn-algo-mas {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 10001;
+  background: linear-gradient(135deg, #ff4d6d, #ff99cc);
+  color: white;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 24px !important;
+  font-size: 1.2rem !important;
+  cursor: pointer;
+  font-weight: bold;
+  min-width: auto !important;
+  width: auto !important;
+  margin: 0 !important;
+  box-shadow: 0 0 15px rgba(255,51,102,0.5);
+}
+
+.btn-cerrar:active, .btn-algo-mas:active {
   transform: scale(0.95);
-  background-color: #ff1e4d;
 }
 
 .modal-muuuu {
   position: fixed;
-  bottom: 100px;
+  bottom: 160px;
   right: 20px;
   background: linear-gradient(135deg, #ff4d6d, #ff99cc);
   color: white;
-  padding: 18px 28px;
+  padding: 15px 25px;
   border-radius: 30px;
-  font-size: 1.4rem !important;
+  font-size: 1.3rem !important;
   font-weight: bold;
   z-index: 10002;
   animation: aparecer 0.3s ease-out;
@@ -304,52 +264,68 @@ button:active {
   line-height: 1.4;
 }
 
-/* RESPONSIVE PARA MÓVILES PEQUEÑOS */
+/* Estrellas de fondo */
+.estrella-fondo {
+  position: absolute;
+  color: gold;
+  font-size: 14px;
+  animation: twinkle 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.corazon-fondo {
+  position: absolute;
+  font-size: 20px;
+  animation: flotarFondo 4s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes flotarFondo {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(-100px) rotate(20deg); opacity: 0; }
+}
+
+/* Responsive */
 @media (max-width: 480px) {
   .pantalla {
     padding: 20px 15px;
   }
-  
   h1 {
     font-size: 2rem !important;
   }
-  
   p {
     font-size: 1.3rem !important;
   }
-  
-  h2 {
-    font-size: 1.5rem !important;
-  }
-  
   button {
     padding: 14px 28px !important;
     font-size: 1.3rem !important;
     min-width: 200px;
   }
-  
-  .latido {
-    font-size: 80px !important;
+  .btn-algo-mas {
+    bottom: 70px;
+    padding: 10px 20px !important;
+    font-size: 1rem !important;
   }
-  
-  .contador-clicks {
-    font-size: 1.2rem !important;
-  }
-  
-  #resultado {
-    font-size: 1.2rem !important;
+  .modal-muuuu {
+    bottom: 140px;
+    font-size: 1.1rem !important;
   }
 }
 
-/* SOPORTE PARA NOTCH */
 @supports (padding: max(0px)) {
   .btn-cerrar {
     top: max(15px, env(safe-area-inset-top));
     right: max(15px, env(safe-area-inset-right));
   }
-  
   .btn-algo-mas {
-    bottom: max(20px, env(safe-area-inset-bottom));
+    bottom: max(80px, env(safe-area-inset-bottom) + 60px);
     right: max(20px, env(safe-area-inset-right));
   }
 }
@@ -423,14 +399,11 @@ button:active {
 
 <script>
 
-// Variables para el juego
 let clicksMucho = 0;
 
-/* Cambiar pantallas */
 function cambiar(id) {
   document.querySelectorAll(".pantalla").forEach(p => p.classList.remove("activa"));
   document.getElementById(id).classList.add("activa");
-  
   if (id === 'juego') {
     reiniciarJuego();
   }
@@ -468,10 +441,8 @@ function reiniciarJuego() {
 function moverBotonAleatorio(btn) {
   const ventanaAncho = window.innerWidth - 180;
   const ventanaAlto = window.innerHeight - 180;
-  
   const x = Math.random() * ventanaAncho;
   const y = Math.random() * ventanaAlto;
-  
   btn.style.position = 'fixed';
   btn.style.left = Math.max(10, Math.min(x, window.innerWidth - 160)) + 'px';
   btn.style.top = Math.max(10, Math.min(y, window.innerHeight - 80)) + 'px';
@@ -491,7 +462,6 @@ const mensajesIntento = [
 function respuestaMucho() {
   const btn = document.getElementById('btnMucho');
   const resultadoDiv = document.getElementById('resultado');
-  
   clicksMucho++;
   const contadorDiv = document.getElementById('contadorJuego');
   contadorDiv.innerHTML = `🎯 Click ${clicksMucho}/7 🎯`;
@@ -500,32 +470,25 @@ function respuestaMucho() {
     moverBotonAleatorio(btn);
     const msgAleatorio = mensajesIntento[Math.floor(Math.random() * mensajesIntento.length)];
     resultadoDiv.innerHTML = `${msgAleatorio}`;
-    
     contadorDiv.style.transform = 'scale(1.1)';
     setTimeout(() => { contadorDiv.style.transform = 'scale(1)'; }, 200);
     crearCorazonCelebracion();
   } 
   else if (clicksMucho === 7) {
     resultadoDiv.innerHTML = "🎉🎊✨ ¡OBVIOOO MICROBIOOO! ✨🎊🎉<br>💘 Tu eres lo mas importante que tengo y nunca olvides lo mucho que te amo desgraciada :V 🤡💘";
-    
     btn.style.backgroundColor = '#28a745';
     btn.textContent = '✓ Completado ✓';
     btn.style.position = 'relative';
     btn.style.left = '0';
     btn.style.top = '0';
     btn.onclick = null;
-    
     setTimeout(() => {
       document.getElementById('btnNada').disabled = true;
       document.getElementById('btnPoco').disabled = true;
       document.getElementById('btnNada').style.opacity = '0.5';
       document.getElementById('btnPoco').style.opacity = '0.5';
-      
       document.getElementById("mensajeFinal").innerHTML = "Eres lo mejor que me ha pasado ❤️, por ahora 😏 xd jajaja... <br>✨ Ahora si, último detallito 🤑😎💕 ✨";
-      
-      setTimeout(() => {
-        cambiar('final');
-      }, 2000);
+      setTimeout(() => { cambiar('final'); }, 2000);
     }, 1500);
   }
 }
@@ -539,10 +502,7 @@ function crearCorazonCelebracion() {
   corazon.style.fontSize = (40 + Math.random() * 40) + 'px';
   corazon.style.animationDuration = (1 + Math.random() * 2) + 's';
   document.body.appendChild(corazon);
-  
-  setTimeout(() => {
-    corazon.remove();
-  }, 2000);
+  setTimeout(() => { corazon.remove(); }, 2000);
 }
 
 function generarCorazonesFlotantes() {
@@ -558,10 +518,7 @@ function generarCorazonesFlotantes() {
       corazon.style.animationDuration = (2 + Math.random() * 5) + 's';
       corazon.style.animationDelay = Math.random() * 3 + 's';
       document.body.appendChild(corazon);
-      
-      setTimeout(() => {
-        corazon.remove();
-      }, 8000);
+      setTimeout(() => { corazon.remove(); }, 8000);
     }
   }, 400);
 }
@@ -578,10 +535,7 @@ function generarEstrellas() {
       estrella.style.fontSize = (25 + Math.random() * 40) + 'px';
       estrella.style.animationDuration = (0.8 + Math.random() * 1.5) + 's';
       document.body.appendChild(estrella);
-      
-      setTimeout(() => {
-        estrella.remove();
-      }, 1500);
+      setTimeout(() => { estrella.remove(); }, 1500);
     }
   }, 1000);
 }
@@ -600,393 +554,145 @@ document.getElementById('cerrarHeart').addEventListener('click', function() {
 document.getElementById('btnAlgoMas').addEventListener('click', function() {
   const modalExistente = document.querySelector('.modal-muuuu');
   if (modalExistente) modalExistente.remove();
-  
   const modal = document.createElement('div');
   modal.className = 'modal-muuuu';
   modal.innerHTML = '🐮 MUUUUU 🐮<br>Por cierto son 50 pesitos 🤑🤑🤑<br>Nada es gratis 🤑🤑🤑';
   document.getElementById('heartContainer').appendChild(modal);
-  
-  setTimeout(() => {
-    modal.remove();
-  }, 3500);
+  setTimeout(() => { modal.remove(); }, 3500);
 });
 
 function generarElementosFondo() {
   const container = document.getElementById('heartContainer');
-  
-  const fondosAntiguos = container.querySelectorAll('.estrella-fondo, .corazon-fundo');
+  const fondosAntiguos = container.querySelectorAll('.estrella-fondo, .corazon-fondo');
   fondosAntiguos.forEach(el => el.remove());
-  
-  for (let i = 0; i < 80; i++) {
+  for (let i = 0; i < 60; i++) {
     const estrella = document.createElement('div');
     estrella.className = 'estrella-fondo';
     estrella.innerHTML = ['✨', '⭐', '🌟', '💫', '⚡'][Math.floor(Math.random() * 5)];
     estrella.style.left = Math.random() * 100 + '%';
     estrella.style.top = Math.random() * 100 + '%';
-    estrella.style.fontSize = (12 + Math.random() * 20) + 'px';
+    estrella.style.fontSize = (10 + Math.random() * 16) + 'px';
     estrella.style.animationDelay = Math.random() * 3 + 's';
     container.appendChild(estrella);
   }
-  
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 40; i++) {
     const corazonFondo = document.createElement('div');
-    corazonFondo.className = 'corazon-fundo';
+    corazonFondo.className = 'corazon-fondo';
     const corazones = ['❤️', '💖', '💕', '💗', '💓', '💘', '💝'];
     corazonFondo.innerHTML = corazones[Math.floor(Math.random() * corazones.length)];
     corazonFondo.style.left = Math.random() * 100 + '%';
     corazonFondo.style.bottom = '-' + (Math.random() * 50) + 'px';
-    corazonFondo.style.fontSize = (20 + Math.random() * 40) + 'px';
+    corazonFondo.style.fontSize = (18 + Math.random() * 35) + 'px';
     corazonFondo.style.animationDelay = Math.random() * 5 + 's';
     corazonFondo.style.animationDuration = (3 + Math.random() * 6) + 's';
     container.appendChild(corazonFondo);
   }
 }
 
+// CORAZÓN DE PALABRAS - VERSIÓN LIGERA (MENOS PALABRAS PARA QUE SEA RÁPIDO)
 function inicializarCorazon() {
-  (function() {
-    const container = document.getElementById('heartCanvas');
-    const containerRect = container.getBoundingClientRect();
-    const centerX = containerRect.width / 2;
-    const centerY = containerRect.height / 2;
-    const scaleVal = Math.min(containerRect.width, containerRect.height) / 28;
-    
-    function obtenerPalabra() {
-      const r = Math.random();
-      if (r < 0.48) return "Betza";
-      if (r < 0.72) return "Betzabe";
-      if (r < 0.85) return "AMOR";
-      if (r < 0.93) return "Feliz";
-      return "vida";
-    }
-    
-    const listaPalabras = [];
-    
-    function puntoCorazonOriginal(t) {
-      const xRaw = 16 * Math.pow(Math.sin(t), 3);
-      const yRaw = 13 * Math.cos(t) - 5 * Math.cos(2*t) - 2*Math.cos(3*t) - Math.cos(4*t);
-      return { x: xRaw, y: yRaw };
-    }
-    
-    function puntoCorazonRotado(t) {
-      const { x, y } = puntoCorazonOriginal(t);
-      return { x: -x, y: -y };
-    }
-    
-    // Contorno principal
-    for (let i = 0; i <= 75; i++) {
-      let t = (i / 75) * 2 * Math.PI;
-      let { x, y } = puntoCorazonRotado(t);
-      let posX = centerX + (x * scaleVal);
-      let posY = centerY + (y * scaleVal) - 8;
-      
-      let palabra = obtenerPalabra();
-      if (Math.abs(x) < 2.5 && y < -5) palabra = "❤️";
-      if (y < -7 && Math.abs(x) < 3) palabra = "Betza";
-      if ((x > 10 && y > 1) || (x < -10 && y > 1)) palabra = (i % 2 === 0) ? "AMOR" : "Betza";
-      
-      let fontSize = (0.9 + (Math.sin(t) * 0.2));
-      fontSize = Math.min(1.15, Math.max(0.85, fontSize));
-      
-      listaPalabras.push({
-        texto: palabra,
-        left: posX,
-        top: posY,
-        fontSize: fontSize + 'rem',
-        claseExtra: (palabra === "AMOR" || palabra === "Betza") ? "destacada" : "",
-        retardo: (i % 4 === 0) ? 0.02 : 0
-      });
-    }
-    
-    // Relleno interno
-    for (let i = 0; i < 80; i++) {
-      let t = Math.random() * 2 * Math.PI;
-      let { x, y } = puntoCorazonRotado(t);
-      let inner = 0.5 + Math.random() * 0.45;
-      let ix = x * inner;
-      let iy = y * inner;
-      let posX = centerX + ix * scaleVal;
-      let posY = centerY + iy * scaleVal - 6;
-      
-      if (iy < -8 && Math.abs(ix) < 2) continue;
-      
-      let palabra;
-      let randVal = Math.random();
-      if (randVal < 0.52) palabra = "Betza";
-      else if (randVal < 0.74) palabra = "Betzabe";
-      else if (randVal < 0.87) palabra = "AMO";
-      else palabra = "Feliz";
-      
-      if (Math.abs(ix) < 2.5 && iy > -2 && iy < 4) {
-        palabra = (Math.random() > 0.65) ? "TE AMO" : "Betza";
-      }
-      
-      let fSize = 0.8 + Math.random() * 0.5;
-      fSize = Math.min(1.05, fSize);
-      listaPalabras.push({
-        texto: palabra,
-        left: posX,
-        top: posY,
-        fontSize: fSize + 'rem',
-        claseExtra: (palabra === "TE AMO") ? "destacada" : "soft-word",
-        retardo: 0
-      });
-    }
-    
-    // Elementos centrales
-    listaPalabras.push({
-      texto: "❤️",
-      left: centerX - 70,
-      top: centerY - 48,
-      fontSize: "clamp(28px, 8vw, 2.2rem)",
-      claseExtra: "corazon-emoji",
-      retardo: 0.01,
-      zIndex: 70
-    });
-    listaPalabras.push({
-      texto: "❤️",
-      left: centerX + 70,
-      top: centerY - 48,
-      fontSize: "clamp(28px, 8vw, 2.2rem)",
-      claseExtra: "corazon-emoji",
-      retardo: 0.01,
-      zIndex: 70
-    });
-    
-    listaPalabras.push({
-      texto: "Betza",
-      left: centerX - 75,
-      top: centerY - 20,
-      fontSize: "clamp(40px, 10vw, 4rem)",
-      claseExtra: "central-betza",
-      retardo: 0,
-      esCentral: true,
-      zIndex: 200
-    });
-    
-    listaPalabras.push({
-      texto: "AMOR",
-      left: centerX,
-      top: centerY - 82,
-      fontSize: "clamp(18px, 5vw, 1.5rem)",
-      claseExtra: "destacada",
-      retardo: 0.02
-    });
-    
-    listaPalabras.push({
-      texto: "Betzabe",
-      left: centerX - 88,
-      top: centerY + 40,
-      fontSize: "clamp(12px, 3.5vw, 1rem)",
-      claseExtra: "destacada",
-      retardo: 0.01
-    });
-    listaPalabras.push({
-      texto: "Betzabe",
-      left: centerX + 88,
-      top: centerY + 40,
-      fontSize: "clamp(12px, 3.5vw, 1rem)",
-      claseExtra: "destacada",
-      retardo: 0.01
-    });
-    
-    listaPalabras.push({
-      texto: "TE DESEO",
-      left: centerX - 70,
-      top: centerY + 112,
-      fontSize: "clamp(11px, 3.2vw, 0.98rem)",
-      claseExtra: "destacada",
-      retardo: 0.03
-    });
-    listaPalabras.push({
-      texto: "FELIZ",
-      left: centerX + 72,
-      top: centerY + 112,
-      fontSize: "clamp(11px, 3.2vw, 0.98rem)",
-      claseExtra: "destacada",
-      retardo: 0.03
-    });
-    
-    listaPalabras.push({
-      texto: "VIDA",
-      left: centerX - 118,
-      top: centerY + 8,
-      fontSize: "clamp(12px, 3.5vw, 1rem)",
-      claseExtra: "destacada",
-      retardo: 0.02
-    });
-    listaPalabras.push({
-      texto: "VIDA",
-      left: centerX + 118,
-      top: centerY + 8,
-      fontSize: "clamp(12px, 3.5vw, 1rem)",
-      claseExtra: "destacada",
-      retardo: 0.02
-    });
-    
-    listaPalabras.push({
-      texto: "eterno",
-      left: centerX,
-      top: centerY + 150,
-      fontSize: "clamp(11px, 3.2vw, 0.95rem)",
-      claseExtra: "soft-word",
-      retardo: 0.03
-    });
-    
-    listaPalabras.push({
-      texto: "AMO",
-      left: centerX - 58,
-      top: centerY + 25,
-      fontSize: "clamp(12px, 3.5vw, 1rem)",
-      claseExtra: "destacada",
-      retardo: 0.01
-    });
-    listaPalabras.push({
-      texto: "AMO",
-      left: centerX + 58,
-      top: centerY + 25,
-      fontSize: "clamp(12px, 3.5vw, 1rem)",
-      claseExtra: "destacada",
-      retardo: 0.01
-    });
-    
-    // Puntos adicionales
-    for (let f = 0; f < 36; f++) {
-      let t = (f / 36) * 2 * Math.PI;
-      let { x, y } = puntoCorazonRotado(t);
-      let posX = centerX + x * scaleVal * 1.01;
-      let posY = centerY + y * scaleVal - 8;
-      let palabra;
-      if (f % 3 === 0) palabra = "Feliz";
-      else if (f % 5 === 0) palabra = "deseo";
-      else palabra = "Betza";
-      
-      if (Math.abs(x) < 1.5 && y < -4) continue;
-      listaPalabras.push({
-        texto: palabra,
-        left: posX,
-        top: posY,
-        fontSize: "clamp(9px, 2.8vw, 0.85rem)",
-        claseExtra: "soft-word",
-        retardo: (f % 2 === 0) ? 0.01 : 0
-      });
-    }
-    
-    // Toques internos
-    for (let s = 0; s < 20; s++) {
-      let angle = (s / 20) * Math.PI * 2;
-      let { x, y } = puntoCorazonRotado(angle);
-      let mixX = x * (0.55 + Math.random() * 0.35);
-      let mixY = y * (0.55 + Math.random() * 0.4);
-      let posX = centerX + mixX * scaleVal;
-      let posY = centerY + mixY * scaleVal - 6;
-      if (Math.abs(mixX) < 2 && mixY < -6) continue;
-      let palabraChoice = (s % 2 === 0) ? "Betza" : (s % 3 === 0 ? "Betzabe" : "❤️");
-      listaPalabras.push({
-        texto: palabraChoice,
-        left: posX,
-        top: posY,
-        fontSize: "clamp(9px, 2.8vw, 0.82rem)",
-        claseExtra: "soft-word",
-        retardo: 0.02
-      });
-    }
-    
-    // Renderizado
-    container.innerHTML = '';
-    
-    const glowBg = document.createElement('div');
-    glowBg.style.position = 'absolute';
-    glowBg.style.width = '100%';
-    glowBg.style.height = '100%';
-    glowBg.style.background = 'radial-gradient(ellipse at center, rgba(255,70,120,0.15) 0%, rgba(255,100,150,0.05) 50%, transparent 80%)';
-    glowBg.style.pointerEvents = 'none';
-    container.appendChild(glowBg);
-    
-    listaPalabras.forEach(item => {
-      const span = document.createElement('span');
-      span.textContent = item.texto;
-      span.classList.add('heart-word');
-      if (item.claseExtra) span.classList.add(item.claseExtra);
-      
-      span.style.position = 'absolute';
-      span.style.left = item.left + 'px';
-      span.style.top = item.top + 'px';
-      span.style.transform = 'translate(-50%, -50%)';
-      span.style.fontSize = item.fontSize;
-      span.style.whiteSpace = 'nowrap';
-      span.style.zIndex = item.zIndex || (item.esCentral ? 200 : 10);
-      
-      if (item.retardo) {
-        span.style.animationDelay = item.retardo + 's';
-      }
-      
-      container.appendChild(span);
-    });
-  })();
+  const container = document.getElementById('heartCanvas');
+  const containerRect = container.getBoundingClientRect();
+  const centerX = containerRect.width / 2;
+  const centerY = containerRect.height / 2;
+  const scaleVal = Math.min(containerRect.width, containerRect.height) / 30;
+  
+  const palabrasAmor = ["Betza", "Betzabe", "AMOR", "Feliz", "vida", "❤️", "💖", "AMO"];
+  function obtenerPalabra() {
+    return palabrasAmor[Math.floor(Math.random() * palabrasAmor.length)];
+  }
+  
+  const listaPalabras = [];
+  
+  function puntoCorazon(t) {
+    const x = 16 * Math.pow(Math.sin(t), 3);
+    const y = 13 * Math.cos(t) - 5 * Math.cos(2*t) - 2*Math.cos(3*t) - Math.cos(4*t);
+    return { x: -x, y: -y };
+  }
+  
+  // Contorno - REDUCIDO
+  for (let i = 0; i <= 60; i++) {
+    let t = (i / 60) * 2 * Math.PI;
+    let { x, y } = puntoCorazon(t);
+    let posX = centerX + (x * scaleVal);
+    let posY = centerY + (y * scaleVal) - 8;
+    let palabra = obtenerPalabra();
+    let fontSize = 0.9 + (Math.sin(t) * 0.2);
+    fontSize = Math.min(1.1, Math.max(0.85, fontSize));
+    listaPalabras.push({ texto: palabra, left: posX, top: posY, fontSize: fontSize + 'rem' });
+  }
+  
+  // Relleno interno - REDUCIDO
+  for (let i = 0; i < 50; i++) {
+    let t = Math.random() * 2 * Math.PI;
+    let { x, y } = puntoCorazon(t);
+    let inner = 0.45 + Math.random() * 0.5;
+    let ix = x * inner;
+    let iy = y * inner;
+    let posX = centerX + ix * scaleVal;
+    let posY = centerY + iy * scaleVal - 5;
+    if (iy < -7 && Math.abs(ix) < 2) continue;
+    let palabra = obtenerPalabra();
+    let fSize = 0.75 + Math.random() * 0.45;
+    listaPalabras.push({ texto: palabra, left: posX, top: posY, fontSize: fSize + 'rem' });
+  }
+  
+  // Elementos centrales
+  listaPalabras.push({ texto: "❤️", left: centerX - 65, top: centerY - 45, fontSize: "clamp(24px, 7vw, 2rem)" });
+  listaPalabras.push({ texto: "❤️", left: centerX + 65, top: centerY - 45, fontSize: "clamp(24px, 7vw, 2rem)" });
+  listaPalabras.push({ texto: "Betza", left: centerX - 70, top: centerY - 18, fontSize: "clamp(32px, 9vw, 3.5rem)", esCentral: true });
+  listaPalabras.push({ texto: "AMOR", left: centerX, top: centerY - 78, fontSize: "clamp(16px, 4.5vw, 1.3rem)" });
+  listaPalabras.push({ texto: "Betzabe", left: centerX - 82, top: centerY + 38, fontSize: "clamp(11px, 3vw, 0.9rem)" });
+  listaPalabras.push({ texto: "Betzabe", left: centerX + 82, top: centerY + 38, fontSize: "clamp(11px, 3vw, 0.9rem)" });
+  listaPalabras.push({ texto: "TE DESEO", left: centerX - 65, top: centerY + 105, fontSize: "clamp(10px, 2.8vw, 0.85rem)" });
+  listaPalabras.push({ texto: "FELIZ", left: centerX + 65, top: centerY + 105, fontSize: "clamp(10px, 2.8vw, 0.85rem)" });
+  listaPalabras.push({ texto: "VIDA", left: centerX - 110, top: centerY + 5, fontSize: "clamp(11px, 3vw, 0.9rem)" });
+  listaPalabras.push({ texto: "VIDA", left: centerX + 110, top: centerY + 5, fontSize: "clamp(11px, 3vw, 0.9rem)" });
+  listaPalabras.push({ texto: "eterno", left: centerX, top: centerY + 140, fontSize: "clamp(10px, 2.8vw, 0.85rem)" });
+  listaPalabras.push({ texto: "AMO", left: centerX - 52, top: centerY + 22, fontSize: "clamp(11px, 3vw, 0.9rem)" });
+  listaPalabras.push({ texto: "AMO", left: centerX + 52, top: centerY + 22, fontSize: "clamp(11px, 3vw, 0.9rem)" });
+  
+  // Renderizado
+  container.innerHTML = '';
+  const glowBg = document.createElement('div');
+  glowBg.style.position = 'absolute';
+  glowBg.style.width = '100%';
+  glowBg.style.height = '100%';
+  glowBg.style.background = 'radial-gradient(ellipse at center, rgba(255,70,120,0.12) 0%, transparent 70%)';
+  glowBg.style.pointerEvents = 'none';
+  container.appendChild(glowBg);
+  
+  listaPalabras.forEach(item => {
+    const span = document.createElement('span');
+    span.textContent = item.texto;
+    span.style.position = 'absolute';
+    span.style.left = item.left + 'px';
+    span.style.top = item.top + 'px';
+    span.style.transform = 'translate(-50%, -50%)';
+    span.style.fontSize = item.fontSize;
+    span.style.fontWeight = item.esCentral ? '900' : '600';
+    span.style.color = '#ff3366';
+    span.style.textShadow = '0 0 8px #ff1a4f';
+    span.style.whiteSpace = 'nowrap';
+    span.style.animation = 'latidoSuave 0.6s ease-in-out infinite';
+    container.appendChild(span);
+  });
 }
 
+// Estilos del corazón
 const styleHeart = document.createElement('style');
 styleHeart.textContent = `
-  .heart-word {
-    position: absolute;
-    font-weight: 700;
-    white-space: nowrap;
-    color: #ff3366;
-    text-shadow: 0 0 5px #ff1a4f, 0 0 10px #ff3366;
-    pointer-events: none;
-    will-change: transform;
-    backface-visibility: hidden;
-    animation: latidoRapido 0.6s ease-in-out infinite;
-  }
-  
-  @keyframes latidoRapido {
-    0% { transform: scale(1); text-shadow: 0 0 2px #ff2e63, 0 0 6px #ff3366; }
-    45% { transform: scale(1.38); text-shadow: 0 0 12px #ff4d7a, 0 0 20px #ff0066; }
-    70% { transform: scale(1.45); text-shadow: 0 0 14px #ff6699, 0 0 28px #ff1a4f; }
-    100% { transform: scale(1); text-shadow: 0 0 2px #ff2e63, 0 0 6px #ff3366; }
-  }
-  
-  .central-betza {
-    font-weight: 900;
-    background: linear-gradient(135deg, #ff4d6d, #ffb3cc);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent !important;
-    text-shadow: 0 0 25px #ff3366, 0 0 45px #ff99bb;
-    letter-spacing: 3px;
-    z-index: 100;
-    animation: latidoCentral 0.6s ease-in-out infinite !important;
-  }
-  
-  @keyframes latidoCentral {
-    0% { transform: scale(1); text-shadow: 0 0 8px #ff4d6d; }
-    50% { transform: scale(1.22); text-shadow: 0 0 28px #ff3366, 0 0 50px #ff6699; }
-    100% { transform: scale(1); text-shadow: 0 0 8px #ff4d6d; }
-  }
-  
-  .corazon-emoji {
-    text-shadow: 0 0 12px #ff3366, 0 0 20px #ff6699;
-    animation: latidoRapido 0.6s ease-in-out infinite;
-  }
-  
-  .destacada {
-    font-weight: 800;
-    letter-spacing: 1px;
-  }
-  
-  .soft-word {
-    font-weight: 500;
-    opacity: 0.92;
+  @keyframes latidoSuave {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.35); text-shadow: 0 0 15px #ff3366; }
+    100% { transform: translate(-50%, -50%) scale(1); }
   }
 `;
 document.head.appendChild(styleHeart);
 
 document.addEventListener('DOMContentLoaded', function() {
   const btnMucho = document.getElementById('btnMucho');
-  if (btnMucho) {
-    btnMucho.onclick = respuestaMucho;
-  }
-  
+  if (btnMucho) btnMucho.onclick = respuestaMucho;
   generarCorazonesFlotantes();
   generarEstrellas();
 });
